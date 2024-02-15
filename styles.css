@@ -1,0 +1,402 @@
+/*Apply all these css properties to all regular elements including pseudo elements*/
+*,
+*::before,
+*::after {               
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'League Spartan', sans-serif; 
+}
+
+
+
+/*Defining global variables for color*/
+:root {
+
+    --dk-violet: hsl(268, 75%, 9%); 
+    --lt-violet: hsl(268, 47%, 21%);
+    --lt-violet2: hsl(281, 89%, 26%);
+    --vb-violet: hsl(285, 91%, 52%);
+    --vb-violet2: hsl(290, 70%, 36%);
+  
+    --vb-yellow: hsl(52, 100%, 62%);
+  
+  
+    --pl-white: hsl(0, 0%, 100%);
+  
+    --vb-cyan: hsl(176, 100%, 44%);
+    --vb-cyan2: hsl(177, 92%, 70%);
+    --dk-text: hsl(198, 20%, 13%);
+}
+
+
+
+
+.wrapper{
+
+    width:100vw; 
+    height: 100vh;
+    display: flex; 
+    flex-direction: column; 
+   
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(231deg, rgba(22, 6, 40, 1) 0%, rgba(52, 28, 79, 1) 50%, rgba(88, 7, 125, 1) 100%); 
+
+}
+
+
+.container{
+
+    width: 90%;
+    max-width: 450px;
+ 
+    }
+
+
+h1{
+
+    color: var(--pl-white);  
+    opacity: 0.75;
+    text-transform: uppercase;
+    letter-spacing: 2px; 
+    text-align: center; 
+    line-height: 1.2; 
+}
+
+
+
+.display_container{
+
+    position: relative;
+    
+    background-color: var(--dk-violet);   
+    border-radius: 1rem;
+    border-bottom: 0.35rem solid var(--lt-violet2) ;  
+    margin: 1rem 0; 
+    padding-top: 0.35rem; 
+}
+
+
+
+.display {
+    width: 100%;
+
+    background-color: transparent; /*no color in background)*/
+    padding: 1.15rem 1rem; 
+    color: var(--vb-yellow); 
+    font-weight: 600; 
+    font-size: 1.5rem;
+    line-height: 30px;  
+    letter-spacing: 1px;  
+    padding-right: 3.25rem; 
+    
+    border:none;/* set border:none; because border of <input> tag was visible which were looking odd*/
+  }
+
+
+
+.display::placeholder{
+
+    position: absolute; 
+    top: 50%;
+    left:1.5rem;
+    font-size: 1.5rem;
+    line-height: 30px;
+    color: var(--vb-yellow); 
+    opacity: 0.65; 
+    text-transform: uppercase;
+    transform: translateY(-50%);/*used to shift or move placeholder vertically in center within its parent element*/
+}
+
+
+
+
+.display_container button{
+
+    position: absolute; 
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%); 
+}
+
+
+
+.input-container{
+
+    width: 100%; 
+    background-color: var(--dk-violet);
+    border-radius: 1rem; 
+    padding: 2rem; 
+    border-bottom: 0.35rem solid var(--lt-violet2);
+}
+
+
+
+.length-container{
+
+    display: flex;    
+    justify-content: space-between;  
+    align-items: center; 
+}
+
+
+
+/*Accessing an element using nth-child() selector*/
+
+.length-container p:nth-child(1){
+
+    color: var(--pl-white);   
+    font-size: 1.5rem;
+
+}
+
+
+.length-container p:nth-child(2){
+
+    color: var(--vb-yellow); 
+    font-size: 1.5rem;
+}
+
+
+
+.strength-container{
+
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    margin-top: 1.75rem; 
+    margin-bottom: 2rem;  
+}
+
+
+
+
+.strength-container p{  
+
+    color: var(--pl-white); 
+    font-size: 1.5rem; 
+
+
+}
+
+
+
+.indicator{
+
+    width:1.5rem;
+    height:1.5rem;
+    border-radius:50%;  /*set border-radius:50%; to make <div> rounded as circle*/
+   
+}
+
+
+
+
+.generateButton {
+    width: 100%; 
+    padding: 1rem 0; 
+    background-color: var(--vb-violet); 
+    text-align: center; 
+    border-radius: 0.75rem;  
+    border-bottom: 0.35rem solid var(--vb-yellow); 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    color: var(--vb-yellow);  
+    font-weight: 600;   
+    font-size: 1.25rem; 
+    cursor: pointer; 
+  }
+
+
+
+
+
+  .check{
+
+    display: flex; 
+    align-items: center; 
+    margin: 1rem 0; 
+    gap:0 1rem;  
+  }
+
+
+  .check input{
+
+    appearance: none; /*remove by default style*/
+    width: 20px; 
+    height: 20px;
+    border: 1px solid var(--vb-cyan); 
+    cursor: pointer; 
+    position: relative;
+    border-radius: 0.35rem; 
+}
+
+
+.check input:checked{ 
+
+    background-color: var(--vb-cyan);
+    
+
+
+}
+
+
+
+/*Using ::after pseudo element to insert content inside an element*/
+.check input:checked::after{ 
+    
+    content: '✔';   /*CSS code of ✔(check mark)-> \2713*/
+    position: absolute; 
+    color: var(--dk-text);
+    font-size: 1.05rem; 
+    font-weight:600 ; 
+    left: 50%; 
+    top: -3.5px;
+    transform: translateX(-50%); 
+}
+
+
+
+
+.check label{
+
+    color: var(--pl-white); 
+    font-size: 1.25rem; 
+    letter-spacing: 0.75px; 
+
+}
+
+
+
+.copyBtn{
+
+    background-color: transparent;
+    border: none;   /*to remove the border of copy button(because some part of border was visible)*/
+    /* outline: none; */
+}
+
+
+
+
+.tooltip{
+
+    position: absolute; 
+    background-color: var(--vb-violet2);
+    color: var(--vb-yellow);
+    font-size: 1.25rem;
+    top: -35px;
+    left: -25px;
+    padding: 5px 10px;
+    border-radius: 1rem; 
+    opacity: 0;  /*used to hide copied text*/ 
+    transform: scale(0); /*used to hide copied text and used this property so that we can use transform-origin: bottom; property 
+    So, that the origin of scaling can be set as the bottom edge of <span> element i.e copied text */
+    
+    transform-origin: bottom;
+    
+    transition: all 250ms ease-in-out;
+
+}
+
+
+.active{
+    
+    opacity: 1;/*used to visible copied text*/ 
+    transform: scale(1); /*used to show(visible) copied text and used this property so that we can use transform-origin: bottom; property.
+    So, that the origin of scaling can be set as the bottom edge of <span> element i.e copied text */
+}
+
+
+
+
+
+.slider{
+
+    appearance: none; 
+    width: 100%; 
+    height: 0.75rem;
+    cursor: pointer; 
+    background-color: var(--lt-violet);
+    border-radius: 1rem; 
+    margin-top: 2rem;
+    margin-bottom:1.5rem ;
+    background-image: linear-gradient(var(--vb-violet), var(--vb-violet)); 
+    background-repeat: no-repeat;
+
+   /*  border: none;    */
+   /* outline: none;*/  /*to remove outline around the slider if any*/
+}
+
+
+/*Now, accessing and styling thumb of slider*/
+
+
+
+.slider::-webkit-slider-thumb{
+
+    appearance: none;   
+    height: 2rem; 
+    width:2rem; 
+    border-radius: 50%; 
+    background-color: var(--vb-yellow);
+    cursor: pointer; 
+    margin-top: -3px;
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
+    transition: all 100ms ease-in; 
+    
+    position: relative;/*Due to set the position of thumb of slider as relative the outlines of slider which were coming through thumb background 
+                       are not visible now when we click or changes the value of slider by moving it*/                          
+}
+
+
+
+
+
+.slider:focus{ /*When we select on slider or changes the value of slider*/
+
+    outline: 3px solid var(--vb-yellow);
+
+
+}
+
+
+.slider::-webkit-slider-thumb:hover{/*When we hover on thumb of slider*/
+
+    outline: 2px solid var(--pl-yellow); 
+    background-color:var(--dk-violet);
+    box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.80);
+}
+
+
+
+
+
+
+
+
+/*Like we have used ::-webkit-slider-thumb in pseudo element selector which is visible in Google Chrome same way if we want to acces and change 
+the style of thumb of slider in Firefox then we have to use ::-moz-range-thumb pseudo element selector*/
+
+
+/* .slider::-moz-range-thumb {
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    background: var(--vb-yellow);
+    box-shadow: 0px 0px 20px 0px rgba(255, 229, 61, 0.50);
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb:hover {
+    outline: 2px solid var(--vb-yellow);
+    background-color: var(--dk-violet);
+    box-shadow: 0px 0px 25px 5px rgba(255, 229, 61, 0.80);
+  } */
+
+
+
+
